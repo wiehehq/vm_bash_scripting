@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Update/Upgrade Ubuntu
+cd /
 sudo apt update
 sudo apt upgrade
 
