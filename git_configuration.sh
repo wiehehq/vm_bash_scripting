@@ -10,9 +10,4 @@ git commit -m "This is the test message for the test commit for the test file"
 git status
 git push origin master
 git status
-# check to make sure test_file.txt is on github
-rm test_file.txt
-git add .
-git commit -m "remove test file"
-git push origin master
-# check to make sure test_file.txt is no longer on github
+
