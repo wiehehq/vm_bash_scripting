@@ -51,9 +51,9 @@ sudo apt install mysql-server
 # [y]
 sudo mysql_secure_installation
 # [y]
-# [0]
-# [Enter strong password]
-# [Re-Enter strong password]
+# [#]
+# [Enter password]
+# [Re-Enter password]
 # [y]
 # [y]
 # [y]
