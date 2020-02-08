@@ -46,11 +46,11 @@ read -p "Copy and paste the public key into github, and when finished, press ent
 apt install git-all
 echo "Y"
 git clone git@github.com:wiehehq/vm_bash_scripting.git
-
 echo "yes"
 
 cd vm_bash_scripting
 cp ~/stack_builder.sh stack_builder.sh
+rm ~/stack_builder.sh
 
 git add stack_builder.sh
 git config --global user.email "local_vm_generic_default_user_email.com"
@@ -58,12 +58,9 @@ git config --global user.name "local_vm_generic_default_user_name"
 git commit -m "deployment script (which is also what is making this commit)"
 git push origin master
 
-##### Set terminal and text editor as favorites (control panel on left)
-### gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop']"
-
-##### Set as favorites (in control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
+##### Set as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
-code
-google-chrome
 
-echo "All Done!"
+printf "\n\n-----------------------------------------------\n-----------------------------------------------\n\n   All done setting up your new environment! \n\n-----------------------------------------------\n-----------------------------------------------\n\n"
+
+exit
