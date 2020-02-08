@@ -61,8 +61,8 @@ git push origin master
 ##### Set terminal and text editor as favorites (control panel on left)
 ### gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop']"
 
-##### Open Visual Studio Code and then Chrome via this script
-echo "Open Visual Studio Code and then Chrome via this script"
+##### Set as favorites (in control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
 code
 google-chrome
 
