@@ -13,12 +13,10 @@ function checkpoint () {
 
 ##### Install CURL and some other dependencies via this script
 echo "Install CURL and some other dependencies via this script"
-apt-get install curl
+apt install curl
 # echo [INDICATE YES]
-apt-get install software-properties-common apt-transport-https wget
+apt install software-properties-common apt-transport-https wget
 # echo [INDICATE YES]
-
-checkpoint
 
 
 exit
