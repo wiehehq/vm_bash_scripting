@@ -12,10 +12,12 @@ function checkpoint () {
 
 ##### Update and upgrade before getting started via this script
 
-echo "update and upgrade before getting started via this script" | checkpoint
-apt update | checkpoint
-apt upgrade | checkpoint
-echo "Y" | checkpoint
+echo "update and upgrade before getting started via this script"
+apt update
+apt upgrade
+echo "Y"
+
+exit
 
 ##### Install CURL and some other dependencies via this script
 echo "Install CURL and some other dependencies via this script" | checkpoint
@@ -30,6 +32,8 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add - | 
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | checkpoint
 apt update | checkpoint
 apt install code | checkpoint
+
+exit
 
 ##### Install Chrome via this script
 echo "Install Chrome via this script" | checkpoint
