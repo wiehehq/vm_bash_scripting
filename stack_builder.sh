@@ -18,13 +18,10 @@ apt install curl
 apt install software-properties-common apt-transport-https wget
 # echo [INDICATE YES]
 
-
-exit
-
 ##### Install Visual Studio via this script
 echo "Install Visual Studio via this script"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 apt install code
 
 
