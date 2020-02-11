@@ -110,7 +110,7 @@ checkpoint
 read -p "Copy and paste the public key into github, and when finished, press enter: "
 checkpoint
 yes | sudo apt install git-all
-git clone git@github.com:wiehehq/vm_bash_scripting.git
+yes | git clone git@github.com:wiehehq/vm_bash_scripting.git
 cd vm_bash_scripting
 cp ~/stack_builder.sh stack_builder.sh
 rm ~/stack_builder.sh
@@ -130,3 +130,4 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org
 printf "\n\n-----------------------------------------------\n-----------------------------------------------\n\n   All done setting up your new environment! \n\n-----------------------------------------------\n-----------------------------------------------\n\n"
 
 exit_loudly
+
