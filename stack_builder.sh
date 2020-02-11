@@ -122,3 +122,4 @@ leave_dev_note "Setting as favorites (control panel on left, from top to bottom)
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
 
 exit_loudly
+
