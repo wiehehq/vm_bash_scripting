@@ -111,6 +111,7 @@ read -p "Copy and paste the public key into github, and when finished, press ent
 checkpoint
 yes | sudo apt install git-all
 yes | git clone git@github.com:wiehehq/vm_bash_scripting.git
+leave_dev_note "did you say that you were sure you wanted to continue?"
 cd vm_bash_scripting
 cp ~/stack_builder.sh stack_builder.sh
 rm ~/stack_builder.sh
