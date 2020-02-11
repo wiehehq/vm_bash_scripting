@@ -121,8 +121,6 @@ git commit -m "deployment script (which is also what is making this commit)"
 git push origin master
 
 
-exit_loudly
-
 ##### Setting as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
 leave_dev_note "Setting as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code"
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
@@ -130,4 +128,3 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org
 printf "\n\n-----------------------------------------------\n-----------------------------------------------\n\n   All done setting up your new environment! \n\n-----------------------------------------------\n-----------------------------------------------\n\n"
 
 exit_loudly
-
