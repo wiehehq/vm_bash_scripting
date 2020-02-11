@@ -1,9 +1,5 @@
 #!bin/bash
 
-# Update/Upgrade
-sudo apt update
-sudo apt upgrade
-
 # Set up Postgres
 sudo apt install postgresql postgresql-contrib
 sudo service postgresql start
