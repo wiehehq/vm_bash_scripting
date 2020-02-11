@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# -----  SHOULD BE FUNCTIONAL, BUT LOOK AT THE FINE PRINT -----
+
 ######################  KNOWN VULNERABILITIES
 
 ######################  ARGUEMENTS
@@ -97,21 +99,14 @@ yes | gdebi google-chrome-stable_current_amd64.deb
 
 ##### Installing and configure Git via this script
 leave_dev_note "Installing and configure Git via this script"
-checkpoint
 ssh-keygen -t rsa -b 4096 -C "local_vm_generic_default_user_email.com" -f "/home/dev/.ssh/id_rsa"
-
 # USER MUST ENTER A PASSPHRASE MANUALLY UNTIL A SECURE SOLUTION IS FOUND
-
-checkpoint
 eval "$(ssh-agent -s)"
-checkpoint
 ssh-add ~/.ssh/id_rsa
-checkpoint
 read -p "Copy and paste the public key into github, and when finished, press enter: "
-checkpoint
 yes | sudo apt install git-all
 yes | git clone git@github.com:wiehehq/vm_bash_scripting.git
-leave_dev_note "did you say that you were sure you wanted to continue?"
+# USER MUST ENTER YES MANUALLY UNTIL A SECURE SOLUTION IS FOUND
 cd vm_bash_scripting
 cp ~/stack_builder.sh stack_builder.sh
 rm ~/stack_builder.sh
@@ -126,7 +121,4 @@ git push origin master
 leave_dev_note "Setting as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code"
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
 
-printf "\n\n-----------------------------------------------\n-----------------------------------------------\n\n   All done setting up your new environment! \n\n-----------------------------------------------\n-----------------------------------------------\n\n"
-
 exit_loudly
-
