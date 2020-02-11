@@ -1,6 +1,18 @@
 #!/bin/bash
 
-# Amount of times to enter 'Y/yes'
+######################  KNOWN VULNERABILITIES
+
+######################  ARGUEMENTS
+
+# ssh-keygen "file in which to save your key" (hard-coded with -f currently)
+
+# ssh-keygen passphrase (though passing as an arguement which would be in plain text wouldn't be much better, unless there is some kind of -s flag like 'read' has or something?)
+
+# git repo to clone (instead of mine, since other users will probably want to use their own repos)
+
+
+
+######################  FUNCTIONS
 
 # Will run at all points that some kind of checkpoint would be helpful in the terminal
 function checkpoint () {
@@ -11,45 +23,94 @@ function checkpoint () {
     done
 }
 
-##### Install CURL and some other dependencies via this script
-echo "Install CURL and some other dependencies via this script"
-apt install curl
-# echo [INDICATE YES]
-apt install software-properties-common apt-transport-https wget
-# echo [INDICATE YES]
+function leave_dev_note() {
+    echo 
+    echo
+    echo 
+    echo 
+    echo
+    echo 
+    echo
+    echo
+    echo "........................................................................"
+    echo
+    # $1 = arg: Text to be echo'd as dev note
+    echo $1
+    echo
+    echo "........................................................................"
+    echo 
+    echo 
+    echo
+    echo 
+    echo
+    echo
+    echo
+    echo
+}
 
-##### Install Visual Studio via this script
-echo "Install Visual Studio via this script"
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
-add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-apt install code
+function exit_loudly () {
+    leave_dev_note "!!!!!!!!!!!!   EXITING LOUDLY   !!!!!!!!!!!!"
+    exit
+}
+
+function start_loudly () {
+    leave_dev_note "!!!!!!!!!!!!   STARTING LOUDLY   !!!!!!!!!!!!"
+}
 
 
-exit
-
-##### Install Chrome via this script
-echo "Install Chrome via this script"
-apt install gdebi-core
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-gdebi google-chrome-stable_current_amd64.deb
-# echo [INDICATE YES]
 
 
-exit
 
-##### Install and configure Git via this script
-echo "Install and configure Git via this script"
-ssh-keygen -t rsa -b 4096 -C "local_vm_generic_default_user_email.com"
-echo "/home/dev/.ssh/id_rsa"
-echo ""
-echo ""
+
+
+######################  COMMANDS
+
+
+
+
+
+
+
+##### START SCRIPT LOUDLY
+start_loudly
+
+
+##### Installing CURL and some other dependencies via this script
+leave_dev_note "Installing CURL and some other dependencies via this script"
+yes | apt install curl
+yes | apt install software-properties-common apt-transport-https wget
+
+
+##### Installing Visual Studio via this script
+leave_dev_note "Installing Visual Studio via this script"
+sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
+
+
+##### Installing Chrome via this script
+leave_dev_note "Installing Chrome via this script"
+yes | sudo apt install gdebi-core
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+yes | gdebi google-chrome-stable_current_amd64.deb
+
+
+##### Installing and configure Git via this script
+leave_dev_note "Installing and configure Git via this script"
+checkpoint
+ssh-keygen -t rsa -b 4096 -C "local_vm_generic_default_user_email.com" -f "/home/dev/.ssh/id_rsa"
+
+# USER MUST ENTER A PASSPHRASE MANUALLY UNTIL A SECURE SOLUTION IS FOUND
+
+checkpoint
 eval "$(ssh-agent -s)"
+checkpoint
 ssh-add ~/.ssh/id_rsa
+checkpoint
 read -p "Copy and paste the public key into github, and when finished, press enter: "
-apt install git-all
-# echo [INDICATE YES]
+checkpoint
+yes | sudo apt install git-all
 git clone git@github.com:wiehehq/vm_bash_scripting.git
-# echo [INDICATE YES]
 cd vm_bash_scripting
 cp ~/stack_builder.sh stack_builder.sh
 rm ~/stack_builder.sh
@@ -60,11 +121,12 @@ git commit -m "deployment script (which is also what is making this commit)"
 git push origin master
 
 
-exit
+exit_loudly
 
-##### Set as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
+##### Setting as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code
+leave_dev_note "Setting as favorites (control panel on left, from top to bottom) Terminal, Files, Chrome, and VS Code"
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'code.desktop']"
 
 printf "\n\n-----------------------------------------------\n-----------------------------------------------\n\n   All done setting up your new environment! \n\n-----------------------------------------------\n-----------------------------------------------\n\n"
 
-exit
+exit_loudly
