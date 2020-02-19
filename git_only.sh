@@ -37,6 +37,11 @@ function checkpoint () {
   done
 }
 
+function echo_command() {
+# To be used as a kind of step-over debugger to print when each line is about to execute
+  echo "$1"
+}
+
 function empty_line () {
 # Echo an empty line
   echo ""
