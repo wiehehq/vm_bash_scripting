@@ -152,7 +152,7 @@ empty_line
 if ! $defaults_requested
 then
   ## Confirm non-default variables
-  echo "Okay, I will ask for the details you want to use..."
+  echo 'Okay, I will ask for the details you want to use...'
   empty_line
   ## Prompt SSH path
   read -p 'What is your ssh directories path? ' ssh_path
@@ -181,11 +181,10 @@ fi
 
 leave_dev_note "Chosen Git settings are below..."
 
-
 #### If default settings not desired
 
 echo "ssh_path --------------------- [$ssh_path]"
-echo "ssh_filename ----------------- [$ssh_file]"
+echo "ssh_file ----------------- [$ssh_file]"
 echo "git_username ----------------- [$git_username]"
 echo "git_email -------------------- [$git_email]"
 echo "git_passphrase --------------- [$git_passphrase]"
@@ -206,7 +205,7 @@ leave_dev_note "Installing and configure Git via this script"
 
 leave_dev_note 'read -p "Copy and paste the public key into github, and when finished, press enter: "'
 read -p "Copy and paste the public key into github, and when finished, press enter: "
-leave_dev_note "yes | sudo apt install git-all"
+leave_dev_note 'yes | sudo apt install git-all'
 yes | sudo apt install git-all
 leave_dev_note 'yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"'
 yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"
