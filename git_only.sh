@@ -37,11 +37,6 @@ function checkpoint () {
   done
 }
 
-function echo_command() {
-# To be used as a kind of step-over debugger to print when each line is about to execute
-  echo "$1"
-}
-
 function empty_line () {
 # Echo an empty line
   echo ""
@@ -189,7 +184,8 @@ leave_dev_note "Chosen Git settings are below..."
 
 #### If default settings not desired
 
-echo "git_ssh_path ----------------- [$git_ssh_path]"
+echo "ssh_path --------------------- [$ssh_path]"
+echo "ssh_filename ----------------- [$ssh_file]"
 echo "git_username ----------------- [$git_username]"
 echo "git_email -------------------- [$git_email]"
 echo "git_passphrase --------------- [$git_passphrase]"
@@ -208,16 +204,27 @@ leave_dev_note "Installing and configure Git via this script"
 
 # ssh-add ~/.ssh/id_rsa
 
+leave_dev_note 'read -p "Copy and paste the public key into github, and when finished, press enter: "'
 read -p "Copy and paste the public key into github, and when finished, press enter: "
+leave_dev_note "yes | sudo apt install git-all"
 yes | sudo apt install git-all
+leave_dev_note 'yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"'
 yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"
+leave_dev_note 'eval "$(cd $git_repo)"'
 eval "$(cd $git_repo)"
+leave_dev_note 'eval "$(cp ~/$this_script_name $this_script_name)"'
 eval "$(cp ~/$this_script_name $this_script_name)"
+leave_dev_note 'eval "$(rm ~/$this_script_name.sh)"'
 eval "$(rm ~/$this_script_name.sh)"
+leave_dev_note 'git add $this_script_name'
 git add $this_script_name
+leave_dev_note 'git config --global user.email $git_username'
 git config --global user.email $git_username
+leave_dev_note 'git config --global user.name $git_email'
 git config --global user.name $git_email
+leave_dev_note 'git commit -m "$first_commit_message"'
 git commit -m "$first_commit_message"
+leave_dev_note 'git push origin master'
 git push origin master
 
 
