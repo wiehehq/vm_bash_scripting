@@ -208,7 +208,7 @@ read -p "Copy and paste the public key into github, and when finished, press ent
 leave_dev_note 'yes | sudo apt install git-all'
 yes | sudo apt install git-all
 leave_dev_note 'yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"'
-yes | eval "$(git clone git@github.com:$git_account/$git_repo.git)"
+eval "$(git clone git@github.com:$git_account/$git_repo.git)"
 leave_dev_note 'eval "$(cd $git_repo)"'
 eval "$(cd $git_repo)"
 leave_dev_note 'eval "$(cp ~/$this_script_name $this_script_name)"'
